@@ -19,7 +19,7 @@
 // TODO: receive errors and debug messages through ClientModel
 
 const int CONSOLE_SCROLLBACK = 50;
-const int CONSOLE_HISDNRY = 50;
+const int CONSOLE_HISORCY = 50;
 
 const QSize ICON_SIZE(24, 24);
 
@@ -322,7 +322,7 @@ void RPCConsole::clear()
                 "b { color: #006060; } "
                 );
 
-    message(CMD_REPLY, (tr("Welcome to the Denarius RPC console.") + "<br>" +
+    message(CMD_REPLY, (tr("Welcome to the OrbitalCoin RPC console.") + "<br>" +
                         tr("Use up and down arrows to navigate history, and <b>Ctrl-L</b> to clear screen.") + "<br>" +
                         tr("Type <b>help</b> for an overview of available commands.")), true);
 }
@@ -374,7 +374,7 @@ void RPCConsole::on_lineEdit_returnPressed()
         // Append command to history
         history.append(cmd);
         // Enforce maximum history size
-        while(history.size() > CONSOLE_HISDNRY)
+        while(history.size() > CONSOLE_HISORCY)
             history.removeFirst();
         // Set pointer to end of history
         historyPtr = history.size();

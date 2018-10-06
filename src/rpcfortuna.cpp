@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Darkcoin developers
-// Copyright (c) 2017 The Denarius developers
+// Copyright (c) 2017 The OrbitalCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -57,17 +57,17 @@ Value masternode(const Array& params, bool fHelp)
 			"  enforce      - Enforce masternode payments\n"
 			"  outputs      - Print masternode compatible outputs\n"
             "  status       - Current masternode status\n"
-			"  start        - Start masternode configured in denarius.conf\n"
+			"  start        - Start masternode configured in orbitalcoin.conf\n"
 			"  start-alias  - Start single masternode by assigned alias configured in masternode.conf\n"
 			"  start-many   - Start all masternodes configured in masternode.conf\n"
-			"  stop         - Stop masternode configured in denarius.conf\n"
+			"  stop         - Stop masternode configured in orbitalcoin.conf\n"
 			"  stop-alias   - Stop single masternode by assigned alias configured in masternode.conf\n"
 			"  stop-many    - Stop all masternodes configured in masternode.conf\n"
 			"  list         - Print list of all known masternodes (see masternodelist for more info)\n"
 			"  list-conf    - Print masternode.conf in JSON format\n"
 			"  winners      - Print list of masternode winners\n"
-			//"  vote-many    - Vote on a Denarius initiative\n"
-			//"  vote         - Vote on a Denarius initiative\n"
+			//"  vote-many    - Vote on a OrbitalCoin initiative\n"
+			//"  vote         - Vote on a OrbitalCoin initiative\n"
             );
     if (strCommand == "stop")
     {

@@ -1,4 +1,4 @@
-// Copyright (c) 2017 The Denarius developers
+// Copyright (c) 2017 The OrbitalCoin developers
 // Copyright (c) 2009-2012 The Darkcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -666,10 +666,10 @@ bool CForTunaPool::IsCompatibleWithSession(int64_t nDenom, CTransaction txCollat
 void CForTunaPool::GetDenominationsToString(int nDenom, std::string& strDenom){
     // Function returns as follows:
     //
-    // bit 0 - 100DNR+1 ( bit on if present )
-    // bit 1 - 10DNR+1
-    // bit 2 - 1DNR+1
-    // bit 3 - .1DNR+1
+    // bit 0 - 100ORC+1 ( bit on if present )
+    // bit 1 - 10ORC+1
+    // bit 2 - 1ORC+1
+    // bit 3 - .1ORC+1
     // bit 3 - non-denom
 
 
@@ -725,10 +725,10 @@ int CForTunaPool::GetDenominations(const std::vector<CTxOut>& vout){
 
     // Function returns as follows:
     //
-    // bit 0 - 100DNR+1 ( bit on if present )
-    // bit 1 - 10DNR+1
-    // bit 2 - 1DNR+1
-    // bit 3 - .1DNR+1
+    // bit 0 - 100ORC+1 ( bit on if present )
+    // bit 1 - 10ORC+1
+    // bit 2 - 1ORC+1
+    // bit 3 - .1ORC+1
 
     return denom;
 }
@@ -928,7 +928,7 @@ bool CFortunaQueue::CheckSignature()
 void ThreadCheckForTunaPool(void* parg)
 {
     // Make this thread recognisable as the wallet flushing thread
-    RenameThread("denarius-mn");
+    RenameThread("orbitalcoin-mn");
 
     unsigned int c = 0;
     std::string errorMessage;

@@ -20,9 +20,9 @@
 #define DECORATION_SIZE 64
 #define NUM_ITEMS 3
 
-const QString BaseURL = "http://denarius.io/dnrusd.php";
-const QString BaseURL2 = "http://denarius.io/dnrbtc.php";
-double denariusx;
+const QString BaseURL = "http://orbitalcoin.io/dnrusd.php";
+const QString BaseURL2 = "http://orbitalcoin.io/dnrbtc.php";
+double orbitalcoinx;
 double dnrbtcx;
 
 class TxViewDelegate : public QAbstractItemDelegate
@@ -159,17 +159,17 @@ void OverviewPage::parseNetworkResponse(QNetworkReply *finished )
         return;
     }
 
-if (what == BaseURL) // Denarius Price
+if (what == BaseURL) // OrbitalCoin Price
 {
 
     // QNetworkReply is a QIODevice. So we read from it just like it was a file
-    QString denarius = finished->readAll();
-    denariusx = (denarius.toDouble());
-    denarius = QString::number(denariusx, 'f', 2);
+    QString orbitalcoin = finished->readAll();
+    orbitalcoinx = (orbitalcoin.toDouble());
+    orbitalcoin = QString::number(orbitalcoinx, 'f', 2);
 
-	dollarg = denarius;
+	dollarg = orbitalcoin;
 }
-if (what == BaseURL2) // Denarius BTC Price
+if (what == BaseURL2) // OrbitalCoin BTC Price
 {
 
     // QNetworkReply is a QIODevice. So we read from it just like it was a file

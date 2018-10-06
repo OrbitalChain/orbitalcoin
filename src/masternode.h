@@ -1,4 +1,4 @@
-// Copyright (c) 2017-2018 The Denarius developers
+// Copyright (c) 2017-2018 The OrbitalCoin developers
 // Copyright (c) 2009-2012 The Darkcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -64,7 +64,7 @@ void ProcessMessageMasternode(CNode* pfrom, std::string& strCommand, CDataStream
 bool CheckMasternodeVin(CTxIn& vin, std::string& errorMessage);
 
 //
-// The Masternode Class. For managing the fortuna process. It contains the input of the 5000 DNR, signature to prove
+// The Masternode Class. For managing the fortuna process. It contains the input of the 5000 ORC, signature to prove
 // it's the one who own that ip address and code for calculating the payment election.
 //
 class CMasterNode

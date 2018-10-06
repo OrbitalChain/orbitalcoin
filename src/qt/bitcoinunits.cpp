@@ -38,11 +38,11 @@ QString BitcoinUnits::name(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("DNR");
+    case BTC: return QString("ORC");
     case dBTC: return QString("BTC");
     case USD: return QString("USD");
-    case mBTC: return QString("mDNR");
-    case uBTC: return QString::fromUtf8("μDNR");
+    case mBTC: return QString("mORC");
+    case uBTC: return QString::fromUtf8("μORC");
     default: return QString("???");
     }
 }
@@ -51,11 +51,11 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-    case BTC: return QString("Denarius");
+    case BTC: return QString("OrbitalCoin");
     case dBTC: return QString("Bitcoin");
     case USD: return QString("USD");
-    case mBTC: return QString("Milli-Denarius (1 / 1,000)");
-    case uBTC: return QString("Micro-Denarius (1 / 1,000,000)");
+    case mBTC: return QString("Milli-OrbitalCoin (1 / 1,000)");
+    case uBTC: return QString("Micro-OrbitalCoin (1 / 1,000,000)");
     default: return QString("???");
     }
 }

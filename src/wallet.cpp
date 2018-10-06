@@ -875,7 +875,7 @@ int64_t CWallet::GetAnonDebit(const CTxIn& txin) const
     if (!txin.IsAnonInput())
         return 0;
 
-    // -- amount of owned denarius decreased
+    // -- amount of owned orbitalcoin decreased
     // TODO: store links in memory
 
     {
@@ -1647,7 +1647,7 @@ void CWallet::AvailableCoinsMN(vector<COutput>& vCoins, bool fOnlyConfirmed, boo
                     found = true;
                     if (IsCollateralAmount(pcoin->vout[i].nValue)) continue; // do not use collateral amounts
                     found = !IsDenominatedAmount(pcoin->vout[i].nValue);
-                    if(found && coin_type == ONLY_NONDENOMINATED_NOTMN) found = (pcoin->vout[i].nValue != GetMNCollateral()*COIN); // do not use MN funds 5,000 DNR
+                    if(found && coin_type == ONLY_NONDENOMINATED_NOTMN) found = (pcoin->vout[i].nValue != GetMNCollateral()*COIN); // do not use MN funds 5,000 ORC
                 } else {
                     found = true;
                 }
@@ -1743,7 +1743,7 @@ static void ApproximateBestSubset(vector<pair<int64_t, pair<const CWalletTx*,uns
     }
 }
 
-// denarius: total coins available for staking - WIP needs updating
+// orbitalcoin: total coins available for staking - WIP needs updating
 int64_t CWallet::GetStakeAmount() const
 {
     int64_t nTotal = 0;
@@ -3589,7 +3589,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
                     // masternodes are in-eligible for payment, burn the coins in-stead
                     std::string burnAddress;
                     if (fTestNet) burnAddress = "8TestXXXXXXXXXXXXXXXXXXXXXXXXbCvpq";
-                    else burnAddress = "DNRXXXXXXXXXXXXXXXXXXXXXXXXXZeeDTw";
+                    else burnAddress = "ORCXXXXXXXXXXXXXXXXXXXXXXXXXZeeDTw";
                     CBitcoinAddress burnDestination;
                     burnDestination.SetString(burnAddress);
                     payee = GetScriptForDestination(burnDestination.Get());
@@ -4282,7 +4282,7 @@ void CWallet::FixSpentCoins(int& nMismatchFound, int64_t& nBalanceInQuestion, bo
         {
             if (IsMine(pcoin->vout[n]) && pcoin->IsSpent(n) && (txindex.vSpent.size() <= n || txindex.vSpent[n].IsNull()))
             {
-                printf("FixSpentCoins found lost coin %s DNR %s[%d], %s\n",
+                printf("FixSpentCoins found lost coin %s ORC %s[%d], %s\n",
                     FormatMoney(pcoin->vout[n].nValue).c_str(), pcoin->GetHash().ToString().c_str(), n, fCheckOnly? "repair not attempted" : "repairing");
                 nMismatchFound++;
                 nBalanceInQuestion += pcoin->vout[n].nValue;
@@ -4294,7 +4294,7 @@ void CWallet::FixSpentCoins(int& nMismatchFound, int64_t& nBalanceInQuestion, bo
             }
             else if (IsMine(pcoin->vout[n]) && !pcoin->IsSpent(n) && (txindex.vSpent.size() > n && !txindex.vSpent[n].IsNull()))
             {
-                printf("FixSpentCoins found spent coin %s DNR %s[%d], %s\n",
+                printf("FixSpentCoins found spent coin %s ORC %s[%d], %s\n",
                     FormatMoney(pcoin->vout[n].nValue).c_str(), pcoin->GetHash().ToString().c_str(), n, fCheckOnly? "repair not attempted" : "repairing");
                 nMismatchFound++;
                 nBalanceInQuestion += pcoin->vout[n].nValue;
@@ -6269,7 +6269,7 @@ bool CWallet::SendDnrToAnon(CStealthAddress& sxAddress, int64_t nValue, std::str
 
     if (vNodes.empty())
     {
-        sError = _("Error: Denarius is not connected!");
+        sError = _("Error: OrbitalCoin is not connected!");
         return false;
     };
 
@@ -6379,7 +6379,7 @@ bool CWallet::SendAnonToAnon(CStealthAddress& sxAddress, int64_t nValue, int nRi
 
     if (vNodes.empty())
     {
-        sError = _("Error: Denarius is not connected!");
+        sError = _("Error: OrbitalCoin is not connected!");
         return false;
     };
 
@@ -6392,7 +6392,7 @@ bool CWallet::SendAnonToAnon(CStealthAddress& sxAddress, int64_t nValue, int nRi
 
     if (nValue + nTransactionFee > GetAnonBalance())
     {
-        sError = "Insufficient Anonymous DNR funds";
+        sError = "Insufficient Anonymous ORC funds";
         return false;
     };
 
@@ -6475,7 +6475,7 @@ bool CWallet::SendAnonToDnr(CStealthAddress& sxAddress, int64_t nValue, int nRin
 
     if (vNodes.empty())
     {
-        sError = _("Error: Denarius is not connected!");
+        sError = _("Error: OrbitalCoin is not connected!");
         return false;
     };
 
@@ -6488,7 +6488,7 @@ bool CWallet::SendAnonToDnr(CStealthAddress& sxAddress, int64_t nValue, int nRin
 
     if (nValue + nTransactionFee > GetAnonBalance())
     {
-        sError = "Insufficient Anonymous DNR Funds";
+        sError = "Insufficient Anonymous ORC Funds";
         return false;
     };
 

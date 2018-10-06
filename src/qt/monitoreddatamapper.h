@@ -1,5 +1,5 @@
-#ifndef MONIDNREDDATAMAPPER_H
-#define MONIDNREDDATAMAPPER_H
+#ifndef MONIORCEDDATAMAPPER_H
+#define MONIORCEDDATAMAPPER_H
 
 #include <QDataWidgetMapper>
 
@@ -28,4 +28,4 @@ signals:
 
 
 
-#endif // MONIDNREDDATAMAPPER_H
+#endif // MONIORCEDDATAMAPPER_H

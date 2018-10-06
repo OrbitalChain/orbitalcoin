@@ -141,10 +141,10 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     nLastBlocks(0)
 {
     resize(1300, 400);
-    setWindowTitle(tr("Denarius") + " - " + tr("Wallet"));
+    setWindowTitle(tr("OrbitalCoin") + " - " + tr("Wallet"));
 #ifndef Q_OS_MAC
-    qApp->setWindowIcon(QIcon(":icons/denarius"));
-    setWindowIcon(QIcon(":icons/denarius"));
+    qApp->setWindowIcon(QIcon(":icons/orbitalcoin"));
+    setWindowIcon(QIcon(":icons/orbitalcoin"));
 #else
     setUnifiedTitleAndToolBarOnMac(true);
     QApplication::setAttribute(Qt::AA_DontShowIconsInMenus);
@@ -326,7 +326,7 @@ void BitcoinGUI::createActions()
     tabGroup->addAction(statisticsAction);
 
 	blockAction = new QAction(QIcon(":/icons/block"), tr("&Block Explorer"), this);
-    blockAction->setToolTip(tr("Explore the Denarius Blockchain"));
+    blockAction->setToolTip(tr("Explore the OrbitalCoin Blockchain"));
     blockAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
     blockAction->setCheckable(true);
     tabGroup->addAction(blockAction);
@@ -343,7 +343,7 @@ void BitcoinGUI::createActions()
     //tabGroup->addAction(chatAction);
 
     sendCoinsAction = new QAction(QIcon(":/icons/send"), tr("&Send coins"), this);
-    sendCoinsAction->setToolTip(tr("Send coins to a Denarius address"));
+    sendCoinsAction->setToolTip(tr("Send coins to a OrbitalCoin address"));
     sendCoinsAction->setCheckable(true);
     sendCoinsAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
     tabGroup->addAction(sendCoinsAction);
@@ -379,12 +379,12 @@ void BitcoinGUI::createActions()
     tabGroup->addAction(mintingAction);
 
     masternodeManagerAction = new QAction(QIcon(":/icons/mn"), tr("&Masternodes"), this);
-    masternodeManagerAction->setToolTip(tr("Show Denarius Masternodes status and configure your nodes."));
+    masternodeManagerAction->setToolTip(tr("Show OrbitalCoin Masternodes status and configure your nodes."));
     masternodeManagerAction->setCheckable(true);
     tabGroup->addAction(masternodeManagerAction);
 
     proofOfImageAction = new QAction(QIcon(":/icons/data"), tr("&Proof of Data"), this);
-    proofOfImageAction ->setToolTip(tr("Timestamp Files on the Denarius blockchain."));
+    proofOfImageAction ->setToolTip(tr("Timestamp Files on the OrbitalCoin blockchain."));
     proofOfImageAction ->setCheckable(true);
     tabGroup->addAction(proofOfImageAction);
 
@@ -420,14 +420,14 @@ void BitcoinGUI::createActions()
     quitAction->setToolTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
-    aboutAction = new QAction(QIcon(":/icons/bitcoin"), tr("&About Denarius"), this);
-    aboutAction->setToolTip(tr("Show information about Denarius"));
+    aboutAction = new QAction(QIcon(":/icons/bitcoin"), tr("&About OrbitalCoin"), this);
+    aboutAction->setToolTip(tr("Show information about OrbitalCoin"));
     aboutAction->setMenuRole(QAction::AboutRole);
     aboutQtAction = new QAction(QIcon(":/trolltech/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), this);
     aboutQtAction->setToolTip(tr("Show information about Qt"));
     aboutQtAction->setMenuRole(QAction::AboutQtRole);
     optionsAction = new QAction(QIcon(":/icons/options"), tr("&Options..."), this);
-    optionsAction->setToolTip(tr("Modify configuration options for Denarius"));
+    optionsAction->setToolTip(tr("Modify configuration options for OrbitalCoin"));
     optionsAction->setMenuRole(QAction::PreferencesRole);
     toggleHideAction = new QAction(QIcon(":/icons/bitcoin"), tr("&Show / Hide"), this);
     encryptWalletAction = new QAction(QIcon(":/icons/lock_closed"), tr("&Encrypt Wallet..."), this);
@@ -602,7 +602,7 @@ void BitcoinGUI::setClientModel(ClientModel *clientModel)
 #endif
             if(trayIcon)
             {
-                trayIcon->setToolTip(tr("Denarius client") + QString(" ") + tr("[testnet]"));
+                trayIcon->setToolTip(tr("OrbitalCoin client") + QString(" ") + tr("[testnet]"));
                 trayIcon->setIcon(QIcon(":/icons/toolbar_testnet"));
                 toggleHideAction->setIcon(QIcon(":/icons/toolbar_testnet"));
             }
@@ -690,7 +690,7 @@ void BitcoinGUI::createTrayIcon()
     trayIcon = new QSystemTrayIcon(this);
     trayIconMenu = new QMenu(this);
     trayIcon->setContextMenu(trayIconMenu);
-    trayIcon->setToolTip(tr("Denarius client"));
+    trayIcon->setToolTip(tr("OrbitalCoin client"));
     trayIcon->setIcon(QIcon(":/icons/toolbar"));
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
             this, SLOT(trayIconActivated(QSystemTrayIcon::ActivationReason)));
@@ -762,7 +762,7 @@ void BitcoinGUI::setNumConnections(int count)
     default: icon = ":/icons/connect_4"; break;
     }
     labelConnectionsIcon->setPixmap(QIcon(icon).pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Denarius network", "", count));
+    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to OrbitalCoin network", "", count));
 
     if(fNativeTor)
     {
@@ -781,7 +781,7 @@ void BitcoinGUI::setNumConnections(int count)
         labelConnectTypeIcon->setToolTip(onionauto);
     } else {
         labelConnectTypeIcon->setPixmap(QIcon(":/icons/toroff").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
-        labelConnectTypeIcon->setToolTip(tr("Not Connected via the Tor Network, Start Denarius with the flag nativetor=1"));
+        labelConnectTypeIcon->setToolTip(tr("Not Connected via the Tor Network, Start OrbitalCoin with the flag nativetor=1"));
     }
 }
 
@@ -790,7 +790,7 @@ void BitcoinGUI::setNumBlocks(int count, int nTotalBlocks)
     // don't bother showing anything if we have no connection to the network
     if (!clientModel || clientModel->getNumConnections() == 0)
     {
-        progressBarLabel->setText(tr("Connecting to the Denarius network..."));
+        progressBarLabel->setText(tr("Connecting to the OrbitalCoin network..."));
         progressBarLabel->setVisible(true);
         progressBar->setVisible(false);
         return;
@@ -1055,12 +1055,12 @@ void BitcoinGUI::showConfEditor()
 {
     boost::filesystem::path pathConfig = GetConfigFile();
 
-    /* Open denarius.conf with the associated application */
+    /* Open orbitalcoin.conf with the associated application */
     if (boost::filesystem::exists(pathConfig)) {
         QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(pathConfig.string())));
 	} else {
-		QMessageBox::warning(this, tr("No denarius.conf"),
-        tr("Your denarius.conf does not exist! Please create one in your Denarius data directory."),
+		QMessageBox::warning(this, tr("No orbitalcoin.conf"),
+        tr("Your orbitalcoin.conf does not exist! Please create one in your OrbitalCoin data directory."),
         QMessageBox::Ok, QMessageBox::Ok);
 	}
 	//GUIUtil::openConfigfile();
@@ -1076,7 +1076,7 @@ void BitcoinGUI::showMNConfEditor()
         QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(pathMNConfig.string())));
 	} else {
 		QMessageBox::warning(this, tr("No masternode.conf"),
-        tr("Your masternode.conf does not exist! Please create one in your Denarius data directory."),
+        tr("Your masternode.conf does not exist! Please create one in your OrbitalCoin data directory."),
         QMessageBox::Ok, QMessageBox::Ok);
 	}
     //GUIUtil::openMNConfigfile();
@@ -1253,7 +1253,7 @@ void BitcoinGUI::dropEvent(QDropEvent *event)
         if (nValidUrisFound)
             gotoSendCoinsPage();
         else
-            notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Denarius address or malformed URI parameters."));
+            notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid OrbitalCoin address or malformed URI parameters."));
     }
 
     event->acceptProposedAction();
@@ -1268,7 +1268,7 @@ void BitcoinGUI::handleURI(QString strURI)
         gotoSendCoinsPage();
     }
     else
-        notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Denarius address or malformed URI parameters."));
+        notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid OrbitalCoin address or malformed URI parameters."));
 }
 
 

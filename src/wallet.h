@@ -50,7 +50,7 @@ enum AvailableCoinsType
     ALL_COINS = 1,
     ONLY_DENOMINATED = 2,
     ONLY_NONDENOMINATED = 3,
-    ONLY_NONDENOMINATED_NOTMN = 4 // ONLY_NONDENOMINATED and not 5000 DNR at the same time
+    ONLY_NONDENOMINATED_NOTMN = 4 // ONLY_NONDENOMINATED and not 5000 ORC at the same time
 };
 
 struct COutputEntry
@@ -450,9 +450,9 @@ public:
         return nCredit;
     }
 
-    bool GetCredit(const CTransaction& tx, int64_t& nDNR, int64_t& nAnon, const isminefilter& filter) const
+    bool GetCredit(const CTransaction& tx, int64_t& nORC, int64_t& nAnon, const isminefilter& filter) const
     {
-        nDNR = 0;
+        nORC = 0;
         nAnon = 0;
         BOOST_FOREACH(const CTxOut& txout, tx.vout)
         {
@@ -461,8 +461,8 @@ public:
             {
                 nAnon += GetAnonCredit(txout);
             } else
-                nDNR += GetCredit(txout, filter);
-            if (!MoneyRange(nDNR)
+                nORC += GetCredit(txout, filter);
+            if (!MoneyRange(nORC)
                 || !MoneyRange(nAnon))
                 throw std::runtime_error("CWallet::GetCredit() : value out of range");
         }
@@ -631,7 +631,7 @@ public:
     mutable int64_t nImmatureWatchCreditCached;
     mutable int64_t nAvailableWatchCreditCached;
     mutable int64_t nAvailableAnonCreditCached;
-    mutable int64_t nCredDNRCached;
+    mutable int64_t nCredORCCached;
     mutable int64_t nCredAnonCached;
 
     CWalletTx()
@@ -676,7 +676,7 @@ public:
         fAvailableWatchCreditCached = false;
         fChangeCached = false;
         fAvailableAnonCreditCached = false;
-        nCredDNRCached = 0;
+        nCredORCCached = 0;
         nCredAnonCached = 0;
         nAvailableAnonCreditCached = 0;
         fCreditSplitCached = false;
@@ -882,25 +882,25 @@ public:
             return credit;
     }
 
-    bool GetCredit(int64_t& nCredDNR, int64_t& nCredAnon, bool fUseCache=true) const
+    bool GetCredit(int64_t& nCredORC, int64_t& nCredAnon, bool fUseCache=true) const
     {
         // Must wait until coinbase is safely deep enough in the chain before valuing it
         if ((IsCoinBase() || IsCoinStake()) && GetBlocksToMaturity() > 0)
         {
-            nCredDNR = nCredAnon = 0;
+            nCredORC = nCredAnon = 0;
             return true;
         }
 
         // GetBalance can assume transactions in mapWallet won't change
         if (!fUseCache || !fCreditSplitCached)
         {
-            nCredDNRCached = 0;
+            nCredORCCached = 0;
             nCredAnonCached = 0;
-            pwallet->GetCredit(*this, nCredDNRCached, nCredAnonCached, ISMINE_SPENDABLE);
+            pwallet->GetCredit(*this, nCredORCCached, nCredAnonCached, ISMINE_SPENDABLE);
             fCreditSplitCached = true;
         };
 
-        nCredDNR = nCredDNRCached;
+        nCredORC = nCredORCCached;
         nCredAnon = nCredAnonCached;
         return true;
     }

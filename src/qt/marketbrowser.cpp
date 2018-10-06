@@ -12,17 +12,17 @@
 
 using namespace json_spirit;
 
-const QString kBaseUrl = "http://denarius.io/dnrusd.php";
+const QString kBaseUrl = "http://orbitalcoin.io/dnrusd.php";
 const QString kBaseUrl1 = "http://blockchain.info/tobtc?currency=USD&value=1";
-const QString kBaseUrl2 = "http://denarius.io/dnrmc.php";
-const QString kBaseUrl3 = "http://denarius.io/dnrbtc.php";
+const QString kBaseUrl2 = "http://orbitalcoin.io/dnrmc.php";
+const QString kBaseUrl3 = "http://orbitalcoin.io/dnrbtc.php";
 
 QString bitcoinp = "";
-QString denariusp = "";
+QString orbitalcoinp = "";
 QString dnrmcp = "";
 QString dnrbtcp = "";
 double bitcoin2;
-double denarius2;
+double orbitalcoin2;
 double dnrmc2;
 double dnrbtc2;
 QString bitcoing;
@@ -84,25 +84,25 @@ void MarketBrowser::parseNetworkResponse(QNetworkReply *finished )
         return;
     }
 	
-if (what == kBaseUrl) // Denarius Price
+if (what == kBaseUrl) // OrbitalCoin Price
 {
 
     // QNetworkReply is a QIODevice. So we read from it just like it was a file
-    QString denarius = finished->readAll();
-    denarius2 = (denarius.toDouble());
-    denarius = QString::number(denarius2, 'f', 2);
+    QString orbitalcoin = finished->readAll();
+    orbitalcoin2 = (orbitalcoin.toDouble());
+    orbitalcoin = QString::number(orbitalcoin2, 'f', 2);
 	
-    if(denarius > denariusp)
+    if(orbitalcoin > orbitalcoinp)
     {
-        ui->denarius->setText("<font color=\"yellow\">$" + denarius + "</font>");
-    } else if (denarius < denariusp) {
-        ui->denarius->setText("<font color=\"red\">$" + denarius + "</font>");
+        ui->orbitalcoin->setText("<font color=\"yellow\">$" + orbitalcoin + "</font>");
+    } else if (orbitalcoin < orbitalcoinp) {
+        ui->orbitalcoin->setText("<font color=\"red\">$" + orbitalcoin + "</font>");
         } else {
-    ui->denarius->setText("$"+denarius+" USD");
+    ui->orbitalcoin->setText("$"+orbitalcoin+" USD");
     }
 
-    denariusp = denarius;
-	dollarg = denarius;
+    orbitalcoinp = orbitalcoin;
+	dollarg = orbitalcoin;
 }
 
 if (what == kBaseUrl1) // Bitcoin Price
@@ -124,7 +124,7 @@ if (what == kBaseUrl1) // Bitcoin Price
     bitcoinp = bitcoin;
 }
 
-if (what == kBaseUrl2) // Denarius Market Cap
+if (what == kBaseUrl2) // OrbitalCoin Market Cap
 {
 
     // QNetworkReply is a QIODevice. So we read from it just like it was a file
@@ -145,7 +145,7 @@ if (what == kBaseUrl2) // Denarius Market Cap
 	dnrmarket = dnrmc;
 }
 
-if (what == kBaseUrl3) // Denarius BTC Price
+if (what == kBaseUrl3) // OrbitalCoin BTC Price
 {
 
     // QNetworkReply is a QIODevice. So we read from it just like it was a file

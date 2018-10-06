@@ -1,9 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2018 The Denarius developers
+// Copyright (c) 2018 The OrbitalCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef DNR_CORE_H
-#define DNR_CORE_H
+#ifndef ORC_CORE_H
+#define ORC_CORE_H
 
 #include "uint256.h"
 #include "serialize.h"

@@ -1,12 +1,12 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Denarius
-Comment=Denarius P2P Cryptocurrency
-Comment[fr]=Denarius, monnaie virtuelle cryptographique pair à pair
-Comment[tr]=Denarius, eşten eşe kriptografik sanal para birimi
-Exec=/usr/bin/Denarius
+Name=OrbitalCoin
+Comment=OrbitalCoin P2P Cryptocurrency
+Comment[fr]=OrbitalCoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=OrbitalCoin, eşten eşe kriptografik sanal para birimi
+Exec=/usr/bin/OrbitalCoin
 Terminal=false
 Type=Application
 Icon=/usr/share/pixmaps/bitcoin80.xpm
-MimeType=x-scheme-handler/denarius;
+MimeType=x-scheme-handler/orbitalcoin;
 Categories=Office;

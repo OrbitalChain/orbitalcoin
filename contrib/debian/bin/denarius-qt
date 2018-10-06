@@ -4,13 +4,13 @@ set -e
 
 umask 077
 
-basedir=~/.denarius
+basedir=~/.orbitalcoin
 dbfile="$basedir/DB_CONFIG"
-cfgfile="$basedir/denarius.conf"
+cfgfile="$basedir/orbitalcoin.conf"
 
 [ -e "$basedir" ] || mkdir "$basedir"
 
-# Denarius does not clean up DB log files by default
+# OrbitalCoin does not clean up DB log files by default
 [ -e "$dbfile" ] || echo 'set_flags DB_LOG_AUTOREMOVE' > "$dbfile"
 
-exec /usr/lib/denarius/denarius-qt "$@"
+exec /usr/lib/orbitalcoin/orbitalcoin-qt "$@"

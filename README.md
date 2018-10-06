@@ -1,33 +1,33 @@
-# Denarius [DNR]
+# OrbitalCoin [ORC]
 Tribus Algo PoW/PoS Hybrid Cryptocurrency
 
 ![logo](http://i.imgur.com/gIe5vnw.png)
 
-[![GitHub version](https://img.shields.io/github/release/carsenk/denarius.svg)](https://badge.fury.io/gh/carsenk%2Fdenarius)
-[![License: GPL v3](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/carsenk/denarius/blob/master/COPYING)
-[![Denarius downloads](https://img.shields.io/github/downloads/carsenk/denarius/total.svg?maxAge=2592000)](https://github.com/carsenk/denarius/releases)
+[![GitHub version](https://img.shields.io/github/release/carsenk/orbitalcoin.svg)](https://badge.fury.io/gh/carsenk%2Forbitalcoin)
+[![License: GPL v3](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/carsenk/orbitalcoin/blob/master/COPYING)
+[![OrbitalCoin downloads](https://img.shields.io/github/downloads/carsenk/orbitalcoin/total.svg?maxAge=2592000)](https://github.com/carsenk/orbitalcoin/releases)
 [![Join the chat at https://discord.gg/AcThv2y](https://img.shields.io/badge/Discord-Chat-blue.svg?logo=discord)](https://discord.gg/AcThv2y)
 
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/carsenk/denarius.svg) ![GitHub repo size in bytes](https://img.shields.io/github/repo-size/carsenk/denarius.svg)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/carsenk/orbitalcoin.svg) ![GitHub repo size in bytes](https://img.shields.io/github/repo-size/carsenk/orbitalcoin.svg)
 
 Intro
 ==========================
-Denarius is a true optional anonymous, untraceable, and secure hybrid cryptocurrency.
+OrbitalCoin is a true optional anonymous, untraceable, and secure hybrid cryptocurrency.
 
-Ticker: DNR
+Ticker: ORC
 
-Denarius [DNR] is an anonymous, untraceable, energy efficient, Proof-of-Work (New Tribus Algorithm) and Proof-of-Stake cryptocurrency.
-10,000,000 DNR will be created in approx. about 3 years during the PoW phase. Denarius had a 10% Premine of 1,000,000 DNR for bounties, distribution, and marketing.
+OrbitalCoin [ORC] is an anonymous, untraceable, energy efficient, Proof-of-Work (New Tribus Algorithm) and Proof-of-Stake cryptocurrency.
+10,000,000 ORC will be created in approx. about 3 years during the PoW phase. OrbitalCoin had a 10% Premine of 1,000,000 ORC for bounties, distribution, and marketing.
 
 Specifications
 ==========================
-* Total number of coins: 10,000,000 DNR
+* Total number of coins: 10,000,000 ORC
 * Ideal block time: 30 seconds
 * Stake interest: 6% annual static inflation
 * Confirmations: 10 blocks
 * Maturity: 30 blocks (15 minutes)
 * Min stake age: 8 hours
-* Cost of Hybrid Masternode: 5,000 DNR
+* Cost of Hybrid Masternode: 5,000 ORC
 * Hybrid Masternode Reward: 33% of current block reward
 
 Technology
@@ -47,10 +47,10 @@ Technology
 
 LINKS
 ==========================
-* Official Website(https://denarius.io/)
-* Official Forums(https://denariustalk.org/)
-* Denarius Twitter(https://twitter.com/denariuscoin)
-* Denarius Discord Chat(https://discord.gg/C64HXbc)
+* Official Website(https://orbitalcoin.io/)
+* Official Forums(https://orbitalcointalk.org/)
+* OrbitalCoin Twitter(https://twitter.com/orbitalcoincoin)
+* OrbitalCoin Discord Chat(https://discord.gg/C64HXbc)
 
 ASCII CAST TUTORIALS
 ==========================
@@ -71,7 +71,7 @@ or are controversial.
 
 The master branch is regularly built and tested, but is not guaranteed
 to be completely stable. Tags are regularly created to indicate new
-stable release versions of Denarius.
+stable release versions of OrbitalCoin.
 
 Feature branches are created when there are major new features being
 worked on by several people.

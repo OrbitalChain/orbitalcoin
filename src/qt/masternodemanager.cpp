@@ -155,7 +155,7 @@ void MasternodeManager::updateAdrenalineNode(QString alias, QString addr, QStrin
                 else
                     address2.Set(address1);
                 if (vout.nValue != GetMNCollateral()*COIN)
-                    errorMessage += "TX is not equal to 5000 DNR. ";
+                    errorMessage += "TX is not equal to 5000 ORC. ";
             }
             if (fDebug) printf("MasternodeManager:: %s %s - found %s for alias %s\n", mne.getTxHash().c_str(), mne.getOutputIndex().c_str(), address2.ToString().c_str(),mne.getAlias().c_str());
             break;
@@ -390,7 +390,7 @@ void MasternodeManager::on_startButton_clicked()
     bool result = activeMasternode.Register(c.sAddress, c.sMasternodePrivKey, c.sTxHash, c.sOutputIndex, errorMessage);
 
     QMessageBox msg;
-    msg.setWindowTitle("Denarius Message");
+    msg.setWindowTitle("OrbitalCoin Message");
     if(result)
         msg.setText("Hybrid Masternode at " + QString::fromStdString(c.sAddress) + " started.");
     else
@@ -444,7 +444,7 @@ void MasternodeManager::on_startAllButton_clicked()
     }
 
     QMessageBox msg;
-    msg.setWindowTitle("Denarius Message");
+    msg.setWindowTitle("OrbitalCoin Message");
     msg.setText(results);
     msg.exec();
 
@@ -502,7 +502,7 @@ void MasternodeManager::on_stopButton_clicked()
     std::string errorMessage;
     bool result = activeMasternode.StopMasterNode(c.sAddress, c.sMasternodePrivKey, errorMessage);
     QMessageBox msg;
-    msg.setWindowTitle("Denarius Message");
+    msg.setWindowTitle("OrbitalCoin Message");
     if(result)
     {
         msg.setText("Hybrid Masternode at " + QString::fromStdString(c.sAddress) + " stopped.");
@@ -533,7 +533,7 @@ void MasternodeManager::on_stopAllButton_clicked()
     }
 
     QMessageBox msg;
-    msg.setWindowTitle("Denarius Message");
+    msg.setWindowTitle("OrbitalCoin Message");
     msg.setText(QString::fromStdString(results));
     msg.exec();
 }

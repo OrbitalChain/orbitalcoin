@@ -309,7 +309,7 @@ OBJS= \
     obj/ringsig.o
 
 
-all: denariusd
+all: orbitalcoind
 
 #
 # LevelDB support
@@ -379,11 +379,11 @@ obj/anonymize.o: tor/anonymize.cpp
 	-e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	rm -f $(@:%.o=%.d)
 
-denariusd: $(OBJS:obj/%=obj/%)
+orbitalcoind: $(OBJS:obj/%=obj/%)
 	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
 
 clean:
-	-rm -f denariusd
+	-rm -f orbitalcoind
 	-rm -f obj/*.o
 	-rm -f obj/*.P
 	-rm -f obj/*.d

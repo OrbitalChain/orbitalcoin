@@ -1,5 +1,5 @@
 // Copyright (c) 2012-2013 The Peercoin developers
-// Copyright (c) 2017-2018 The Denarius developers
+// Copyright (c) 2017-2018 The OrbitalCoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -15,21 +15,22 @@ typedef std::map<int, unsigned int> MapModifierCheckpoints;
 // Hard checkpoints of stake modifiers to ensure they are deterministic
 static std::map<int, unsigned int> mapStakeModifierCheckpoints =
     boost::assign::map_list_of
-        ( 0, 0xe00670b )
-        ( 2000, 0x1e8ae45e )
-        ( 5000, 0x34377c3a )
-        ( 10000, 0x11c06314 )
-        ( 20000, 0x41c4dd9b )
-        ( 30000, 0xada5100d )
-        ( 50000, 0xbd80619b )
-        ( 500000, 0x993757b7 )
+	  ( 0, 0xfd11f4e7 )
+       // ( 2000, 0x1e8ae45e )
+        //( 5000, 0x34377c3a )
+        //( 10000, 0x11c06314 )
+       // ( 20000, 0x41c4dd9b )
+        //( 30000, 0xada5100d )
+       // ( 50000, 0xbd80619b )
+       // ( 500000, 0x993757b7 )
         //( 640106, 0x491697be )
     ;
 
 // Hard checkpoints of stake modifiers to ensure they are deterministic (testNet)
 static std::map<int, unsigned int> mapStakeModifierCheckpointsTestNet =
     boost::assign::map_list_of
-        ( 0, 0xfd11f4e7 )
+          ( 0, 0x00000000 )
+        //( 0, 0xfd11f4e7 )
     ;
 
 // Get time weight
@@ -252,7 +253,7 @@ static bool GetKernelStakeModifier(uint256 hashBlockFrom, uint64_t& nStakeModifi
     return true;
 }
 
-// Denarius kernel protocol
+// OrbitalCoin kernel protocol
 // coinstake must meet hash target according to the protocol:
 // kernel (input 0) must meet the formula
 //     hash(nStakeModifier + txPrev.block.nTime + txPrev.offset + txPrev.nTime + txPrev.vout.n + nTime) < bnTarget * nCoinDayWeight
@@ -392,7 +393,7 @@ bool CheckStakeModifierCheckpoints(int nHeight, unsigned int nStakeModifierCheck
 {
     MapModifierCheckpoints& checkpoints = (fTestNet ? mapStakeModifierCheckpointsTestNet : mapStakeModifierCheckpoints);
 
-    if (checkpoints.count(nHeight))
-        return nStakeModifierChecksum == checkpoints[nHeight];
+    if (checkpoints.count(nHeight)){
+        return nStakeModifierChecksum == checkpoints[nHeight];}
     return true;
 }
