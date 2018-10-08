@@ -3614,14 +3614,8 @@ bool LoadBlockIndex(bool fAllowNew)
 
 		    if(fTestNet)
         {
-            block.nNonce   =0;
+            block.nNonce   = 120275;
         }
-printf("block.GetHash() == %s\n", block.GetHash().ToString().c_str());
-printf("Genisis  == %s\n", hashGenesisBlock.ToString().c_str());
-//if(block.GetHash() != hashGenesisBlock){
-//printf("Genisis different de lock hash");
-//}else{
-//printf ("Genis egal a blockhas");}
         if (false && (block.GetHash() != hashGenesisBlock)) {
 
         // This will figure out a valid hash and Nonce if you're
