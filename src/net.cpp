@@ -1363,7 +1363,7 @@ void ThreadOnionSeed(void* parg)
 // The second name should resolve to a list of seed addresses.
 
 static const char *strDNSSeed[][2] = {
-    {"195.140.214.102", "195.140.214.102"},
+    {"dnsseed.orbitalcoin.io", "dnsseed.orbitalcoin.io"},
 };
 
 void ThreadDNSAddressSeed(void* parg)
