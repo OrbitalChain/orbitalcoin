@@ -22,7 +22,6 @@ static std::map<int, unsigned int> mapStakeModifierCheckpoints =
 static std::map<int, unsigned int> mapStakeModifierCheckpointsTestNet =
     boost::assign::map_list_of
           ( 0, 0x0e00670b )
-        //( 0, 0xfd11f4e7 )
     ;
 
 // Get time weight
@@ -384,9 +383,6 @@ unsigned int GetStakeModifierChecksum(const CBlockIndex* pindex)
 bool CheckStakeModifierCheckpoints(int nHeight, unsigned int nStakeModifierChecksum)
 {
     MapModifierCheckpoints& checkpoints = (fTestNet ? mapStakeModifierCheckpointsTestNet : mapStakeModifierCheckpoints);
-
-printf("nStakeModifierChecksum %d\n", nStakeModifierChecksum);
-printf("checkpoints[nHeight] %d\n",checkpoints[nHeight]);
 
     if (checkpoints.count(nHeight)){
         return nStakeModifierChecksum == checkpoints[nHeight];}
